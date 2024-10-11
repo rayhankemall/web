@@ -1,0 +1,657 @@
+/* Style umum */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #0a0a0a;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 10;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+nav .logo {
+    
+    height: 100px; /* Atur tinggi logo sesuai keinginan */
+    margin-right: 10px; /* Memberi jarak antara logo dan teks */
+}
+
+nav h1 {
+    color: white;
+    margin-right: auto;
+    font-size: 24px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+#hero {
+    position: relative;
+    background-image: url('images/rental.jpeg'); /* Ganti dengan gambar yang sesuai */
+    background-size: cover; /* Menggunakan cover agar mengisi seluruh container */
+    background-position: center;
+    height: 100vh; /* Atur tinggi sesuai kebutuhan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    z-index: 1;
+}
+
+/* Modifikasi di media query untuk layar lebih kecil */
+@media only screen and (max-width: 768px) {
+    #hero {
+        background-size: contain; /* Menggunakan contain untuk menjaga proporsi gambar */
+        height: auto; /* Membiarkan tinggi mengikuti konten */
+    }
+}
+#gallery-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain; /* Agar gambar tetap proporsional */
+}
+
+
+/* Overlay untuk memberi efek gelap */
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay gelap */
+    z-index: -1; /* Pastikan overlay berada di belakang konten */
+}
+
+.hero-content {
+    z-index: 2; /* Pastikan konten berada di atas overlay */
+}
+
+h2.fade-in, p.slide-in {
+    color: white; /* Pastikan teks tetap putih dan kontras */
+    margin: 0;
+}
+
+a.cta-button.pulse-button {
+    color: white; /* Warna tombol teks */
+    background-color: #ff5722; /* Warna tombol */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+
+.cta-button {
+    background-color: #f39c12;
+    padding: 15px 30px;
+    border-radius: 5px;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#about, #services, #gallery, #contact {
+    padding: 100px 10px;
+}
+
+.service-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.service {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 50px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    
+}
+
+.service h3 {
+    font-size: 25px;
+    color: #f39c12;
+    margin-bottom: 10px;
+}
+/* Animasi pada gambar */
+.service img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.service img:hover {
+    transform: scale(1.05);
+}
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+    nav h1 {
+        font-size: 20px;
+    }
+
+    .hero-content h2 {
+        font-size: 40px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+    }
+
+    .service-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    #gallery-image {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Tombol WhatsApp untuk layar lebih kecil */
+    #whatsapp-button {
+        padding: 5px 10px;
+        bottom: 10px;
+        right: 10px;
+        gap: 5px;
+    }
+
+    #whatsapp-text {
+        font-size: 14px;
+    }
+}
+/* Reset dasar */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0a0a0a;
+    color: #fff;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* Header dan navigasi */
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Logo */
+.logo {
+    height: 50px;
+}
+
+/* Menu container */
+.menu-container {
+    position: relative;
+ padding-right: 100%;
+ margin-right: 100%;
+}
+
+/* Menu ikon hamburger */
+.menu-icon {
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+
+/* Menu dropdown */
+.main-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #575757;
+}
+
+/* Tampilkan menu dropdown saat aktif */
+.dropdown-content.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Media query untuk layar kecil */
+@media only screen and (max-width: 768px) {
+    /* Sesuaikan padding header */
+    header {
+        padding: 10px;
+    }
+
+    /* Logo */
+    .logo {
+        height: 40px;
+    }
+
+    /* Menu ikon hamburger */
+    .menu-icon {
+        display: block;
+    }
+
+    /* Sembunyikan menu utama di layar kecil */
+    .main-menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Tampilkan menu saat ikon diklik */
+    .menu-container.active .main-menu {
+        display: block;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 200px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Dropdown content untuk layar kecil */
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+    }
+
+    .dropdown-content a {
+        padding: 10px 20px;
+        text-align: left;
+    }
+}
+
+
+
+#hero .hero-content h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #f39c12;
+}
+
+#hero .hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+@media only screen and (min-width: 769px) {
+    #hero .hero-content h2 {
+        font-size: 60px;
+    }
+
+    #hero .hero-content p {
+        font-size: 24px;
+    }
+}
+
+/* Bagian lainnya, seperti .service-list, .gallery-container, dll., akan memiliki aturan responsif serupa. */
+/* Kontak kecil di bawah tentang kami */
+.contact-small {
+    text-align: center;
+    margin-top: 100px;
+    font-size: 17px;
+    color: #22bd75;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
+}
+
+.contact-small a {
+    color: #22b9ff; /* Warna link untuk Instagram dan Telepon */
+    text-decoration: none;
+    
+}
+
+.contact-small a:hover {
+    text-decoration: underline;
+
+}
+
+.contact-small p {
+    margin: 5px 0;
+    
+}
+
+
+/* Animasi pada tombol */
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #e4880f;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.1);
+    background-color: #0056b3;
+}
+
+.cta-button:active {
+    transform: scale(0.95);
+    background-color: #003f7f;
+}
+
+
+/* Gaya untuk galeri */
+.gallery-container {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Gaya untuk tombol */
+.gallery-button {
+    background-color: #727272;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.gallery-button:hover {
+    background-color: #0056b3;
+}
+
+/* Gaya untuk gambar galeri */
+#gallery-image {
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    margin: 0 20px;
+}
+
+#gallery-image:hover {
+    transform: scale(1.05); /* Efek zoom saat hover */
+    cursor: pointer;
+}
+
+/* Mengatur tata letak untuk logo dan teks "Tentang Kami" */
+.about-section-container {
+    display: flex; /* Menggunakan Flexbox untuk tata letak */
+    align-items: center; /* Mengatur agar item rata tengah secara vertikal */
+    justify-content: center; /* Mengatur agar item rata tengah secara horizontal */
+    gap: 20px; /* Memberikan jarak antara logo dan teks */
+    margin: 20px; /* Memberikan margin pada container */
+    flex-wrap: wrap; /* Agar responsif dan dapat berbaris ke bawah jika layar sempit */
+}
+
+.company-logo {
+    max-width: 200px; /* Ukuran maksimum untuk logo */
+    height: auto;
+}
+
+.about-description {
+    text-align: left; /* Mengatur teks menjadi rata kiri */
+}
+
+/* Gaya untuk modal (gambar popup) */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 100; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+  }
+  
+  .close {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .modal-content {
+      width: 100%;
+    }
+  }
+  
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+form input, form textarea {
+    margin-bottom: 10px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #f39c12;
+    border-radius: 5px;
+    color: white;
+    width: 100%;
+}
+
+button {
+    background-color: #f39c12;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    width: 108%;
+}
+
+button:hover {
+    background-color: #e67e22;
+}
+
+footer {
+
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Animasi */
+.fade-in {
+    animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.slide-in {
+    animation: slideIn 2s;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.fade-up {
+    animation: fadeUp 2s;
+}
+
+@keyframes fadeUp {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* Container untuk tombol WhatsApp */
+#whatsapp-button {
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Jarak antara ikon dan teks */
+    padding: 10px 20px;
+    background-color: #25D366; /* Warna khas WhatsApp */
+    border-radius: 50px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    z-index: 1000;
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    animation: pulse 1.5s infinite;
+}
+
+#whatsapp-button img {
+    width: 35px;
+    height: 35px;
+}
+
+/* Gaya untuk teks "Hubungi Kami Sekarang" */
+#whatsapp-text {
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    white-space: nowrap; /* Mencegah teks terpotong */
+}
+
+/* Animasi pulsing */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#whatsapp-button:hover {
+    transform: scale(1.1);
+    background-color: #1eb959; /* Sedikit lebih gelap saat dihover */
+}
